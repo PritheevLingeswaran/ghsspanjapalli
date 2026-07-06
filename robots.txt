@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ghsspanjapalli.vercel.app/sitemap.xml
