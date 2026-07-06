@@ -1421,7 +1421,7 @@ function renderNotices(){
 
   const now = Date.now();
   let html = '';
-  liveNotices.slice(0, 12).forEach(n=>{
+  liveNotices.slice(0, 10).forEach(n=>{
     const dateStr = n.timestamp ? new Date(n.timestamp).toISOString().slice(0,10) : '';
     const isNew = n.timestamp && (now - n.timestamp) / (1000*60*60*24) <= 7;
     html += `
