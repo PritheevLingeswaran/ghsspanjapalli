@@ -42,6 +42,12 @@
 }
 </script>
 
+<!-- ============ VERCEL WEB ANALYTICS ============ -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
 <!-- ============ CDN LIBRARIES ============ -->
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
@@ -666,7 +672,7 @@ img{max-width:100%;height:auto;display:block;}
     <div class="badge-pill">📍 <span data-i18n="heroLocation">Panjapalli, Dharmapuri — 636808</span></div>
     <div class="mt-8 flex flex-wrap gap-4 justify-center">
       <a href="#papers" class="btn-gold">📄 <span data-i18n="ctaPapers">வினாத்தாள்கள்</span></a>
-      <a href="#notices" class="btn-outline">📢 <span data-i18n="ctaNotices">அறிவிப்புகள்</span></a>
+      <a href="#notices" class="btn-outline">📢 <span data-i18n="ctaNotices">அறிவிப���புகள்</span></a>
     </div>
     <div class="grid grid-cols-3 gap-6 mt-12 max-w-2xl mx-auto">
       <div>
@@ -1044,7 +1050,7 @@ const translations = {
     footerSchoolInfo: "பள்ளி தகவல்",
     footerQuickLinks: "விரைவு இணைப்புகள்",
     footerPapers: "வினாத்தாள்கள்",
-    footerContact: "தொடர்பு கொள்ள",
+    footerContact: "தொடர்பு ��ொள்ள",
     footerCopyright: "© 2026 அரசு மேல்நிலைப் பள்ளி, பஞ்சப்பள்ளி. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
     footerDeveloper: "உருவாக்கியவர்: பிரித்தீவ் லிங்கேஸ்வரன், SRM அறிவியல் மற்றும் தொழில்நுட்ப நிறுவனத்தில் மாணவர்",
     langToggle: "View in English"
@@ -1135,7 +1141,7 @@ counterObserver.observe(document.querySelector('.hero'));
 ================================================================ */
 const subjectsByClass = {
   8:  [{en:"Tamil",ta:"தமிழ்",icon:"📖"},{en:"English",ta:"ஆங்கிலம்",icon:"🔤"},{en:"Maths",ta:"கணிதம்",icon:"➗"},{en:"Science",ta:"அறிவியல்",icon:"🔬"},{en:"Social Science",ta:"சமூக அறிவியல்",icon:"🌍"}],
-  9:  [{en:"Tamil",ta:"தமிழ்",icon:"📖"},{en:"English",ta:"ஆங்கிலம்",icon:"🔤"},{en:"Maths",ta:"கணிதம்",icon:"➗"},{en:"Science",ta:"அறிவியல்",icon:"🔬"},{en:"Social Science",ta:"சமூக அறிவியல்",icon:"🌍"}],
+  9:  [{en:"Tamil",ta:"தமிழ்",icon:"📖"},{en:"English",ta:"ஆங்கிலம்",icon:"���"},{en:"Maths",ta:"கணிதம்",icon:"➗"},{en:"Science",ta:"அறிவியல்",icon:"🔬"},{en:"Social Science",ta:"சமூக அறிவியல்",icon:"🌍"}],
   10: [{en:"Tamil",ta:"தமிழ்",icon:"📖"},{en:"English",ta:"ஆங்கிலம்",icon:"🔤"},{en:"Maths",ta:"கணிதம்",icon:"➗"},{en:"Science",ta:"அறிவியல்",icon:"🔬"},{en:"Social Science",ta:"சமூக அறிவியல்",icon:"🌍"}],
   11: [{en:"Tamil",ta:"தமிழ்",icon:"📖"},{en:"English",ta:"ஆங்கிலம்",icon:"🔤"},{en:"Maths",ta:"கணிதம்",icon:"➗"},{en:"Physics",ta:"இயற்பியல்",icon:"⚛️"},{en:"Chemistry",ta:"வேதியியல்",icon:"🧪"},{en:"Biology",ta:"உயிரியல்",icon:"🧬"},{en:"Computer Science",ta:"கணினி அறிவியல்",icon:"💻"}],
   12: [{en:"Tamil",ta:"தமிழ்",icon:"📖"},{en:"English",ta:"ஆங்கிலம்",icon:"🔤"},{en:"Maths",ta:"கணிதம்",icon:"➗"},{en:"Physics",ta:"இயற்பியல்",icon:"⚛️"},{en:"Chemistry",ta:"வேதியியல்",icon:"🧪"},{en:"Biology",ta:"உயிரியல்",icon:"🧬"},{en:"Computer Science",ta:"கணினி அறிவியல்",icon:"💻"}]
