@@ -875,7 +875,8 @@ img{max-width:100%;height:auto;display:block;}
 </div>
 
 <!-- Auto-generated list of PDFs that actually exist in papers/ — regenerate with `python generate_manifest.py` -->
-<script src="./papers_manifest.js"></script>
+<script src="./papers_drive_manifest.js"></script>
+<script src="./textbooks_drive_manifest.js"></script>
 <script>
 /* ================================================================
    TRANSLATIONS OBJECT — every visible string, en / ta
@@ -1150,9 +1151,9 @@ function renderSubjectGrid(){
       let yearBtns = '';
       years.forEach(y=>{
         const path = pdfPath(activeClass,subj.en,exam,y);
-        const available = typeof AVAILABLE_PAPERS === 'undefined' || AVAILABLE_PAPERS.has(path);
-        if(available){
-          yearBtns += `<button class="year-btn" onclick="openModal('${path}','${subj.en} - ${exam} - ${y}')">${y}</button>`;
+        const driveId = typeof DRIVE_PAPERS !== 'undefined' ? DRIVE_PAPERS[path] : undefined;
+        if(driveId){
+          yearBtns += `<button class="year-btn" onclick="openDrivePaper('${driveId}','${subj.en} - ${exam} - ${y}')">${y}</button>`;
         } else {
           const title = currentLang==='ta' ? 'இன்னும் பதிவேற்றப்படவில்லை' : 'Not uploaded yet';
           yearBtns += `<button class="year-btn unavailable" disabled title="${title}">${y}</button>`;
@@ -1290,6 +1291,7 @@ function renderTbGrid(){
   let html = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:18px;">';
   books.forEach(b => {
     const path = `./textbooks/Class${activeTbClass}/${b.f}`;
+    const driveId = typeof DRIVE_TEXTBOOKS !== 'undefined' ? DRIVE_TEXTBOOKS[path] : undefined;
     const title = `${b.en} - Class ${activeTbClass} Textbook`;
     const [faClass, bg, fg] = b.ic;
     const subjName = currentLang === 'ta' ? b.ta : b.en;
@@ -1300,7 +1302,7 @@ function renderTbGrid(){
           <i class="fa-solid ${faClass}" style="color:${fg};font-size:1.5rem"></i>
         </div>
         <div class="${subjClass}" style="margin-bottom:14px">${subjName}</div>
-        <button type="button" class="tb-dl-btn" onclick="openModal('${path}', '${title}')">
+        <button type="button" class="tb-dl-btn" onclick="${driveId ? `openDrivePaper('${driveId}', '${title}')` : `openModal('${path}', '${title}')`}">
           <i class="fa-solid fa-eye"></i> ${viewLabel}
         </button>
       </div>`;
@@ -1322,11 +1324,17 @@ function selTbClass(cls){
 /* ================================================================
    PDF MODAL
 ================================================================ */
-function openModal(path, title){
-  document.getElementById('modalIframe').src = path;
+function showInModal(viewUrl, downloadUrl, title){
+  document.getElementById('modalIframe').src = viewUrl;
   document.getElementById('modalTitle').textContent = title;
-  document.getElementById('modalDownload').href = path;
+  document.getElementById('modalDownload').href = downloadUrl;
   document.getElementById('pdfModal').classList.add('open');
+}
+function openModal(path, title){
+  showInModal(path, path, title);
+}
+function openDrivePaper(driveId, title){
+  showInModal(`https://drive.google.com/file/d/${driveId}/preview`, `https://drive.google.com/uc?export=download&id=${driveId}`, title);
 }
 function closeModal(){
   document.getElementById('pdfModal').classList.remove('open');
