@@ -678,7 +678,7 @@ img{max-width:100%;height:auto;display:block;}
         <div class="text-sm" data-i18n="statTeachers">ஆசிரியர்கள் / Teachers</div>
       </div>
       <div>
-        <div class="counter-box" data-target="5">0</div>
+        <div class="counter-box" data-target="7">0</div>
         <div class="text-sm" data-i18n="statClasses">வகுப்புகள் / Classes</div>
       </div>
     </div>
@@ -971,7 +971,7 @@ const translations = {
     statAccred: "Accreditation",
     gallerySectionTitle: "Gallery",
     contactSectionTitle: "Contact Us",
-    contactAddress: "Govt. Higher Secondary School, Panchapalli, Dharmapuri District, Tamil Nadu — 636808",
+    contactAddress: "Govt. Higher Secondary School, Panjapalli, Dharmapuri District, Tamil Nadu — 636808",
     ctaYoutube: "Watch us on YouTube",
     qrScanText: "Scan the QR code to view our location on the map",
     footerSchoolInfo: "School Info",
@@ -1117,8 +1117,8 @@ function startCounters(){
     const timer = setInterval(()=>{
       cur += step;
       if(cur >= target){ cur = target; clearInterval(timer); }
-      box.textContent = cur + (target>=100 ? '+' : (target===5?'':'+'));
-      if(target===5) box.textContent = cur;
+      box.textContent = cur + (target>=100 ? '+' : (target===7?'':'+'));
+      if(target===7) box.textContent = cur;
     },30);
   });
 }
