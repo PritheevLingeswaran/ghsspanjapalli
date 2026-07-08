@@ -487,6 +487,71 @@ footer h4{color:var(--accent);font-weight:700;margin-bottom:10px;}
 }
 .tb-dl-btn:hover{background:linear-gradient(135deg,#15803d,#166534);transform:translateY(-2px);box-shadow:0 5px 16px rgba(22,163,74,.45);}
 
+/* ===== Competitive Exams section ===== */
+.ce-class-tab{
+  position:relative;overflow:hidden;
+  padding:10px 22px 10px 16px;border-radius:999px;cursor:pointer;
+  font-weight:700;font-size:.9rem;
+  border:2px solid var(--ce-clr,#7c3aed);color:var(--ce-clr,#7c3aed);
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all .3s;
+}
+.ce-class-tab .ce-tab-badge{
+  width:26px;height:26px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--ce-clr,#7c3aed);color:#fff;font-size:.78rem;
+  transition:transform .3s;
+}
+.ce-class-tab:hover:not(.active){background:color-mix(in srgb, var(--ce-clr,#7c3aed) 8%, #fff);}
+.ce-class-tab:hover .ce-tab-badge{transform:rotate(-14deg) scale(1.1);}
+.ce-class-tab.active{background:var(--ce-clr,#7c3aed);color:#fff;box-shadow:0 6px 18px color-mix(in srgb, var(--ce-clr,#7c3aed) 45%, transparent);}
+.ce-class-tab.active .ce-tab-badge{background:#fff;color:var(--ce-clr,#7c3aed);animation:ceBadgeSpin .6s ease;}
+@keyframes ceBadgeSpin{from{transform:rotate(0) scale(.6);}to{transform:rotate(360deg) scale(1);}}
+
+.ce-card{
+  position:relative;overflow:hidden;
+  background:#fff;border-radius:18px;
+  border:1px solid color-mix(in srgb, var(--ce-clr,#7c3aed) 20%, transparent);
+  box-shadow:0 4px 18px rgba(0,0,0,.07);
+  padding:26px 16px 20px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;
+  transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+.ce-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg, transparent 40%, color-mix(in srgb, var(--ce-clr,#7c3aed) 16%, transparent) 50%, transparent 60%);
+  background-size:250% 250%;background-position:120% 0;
+  opacity:0;transition:opacity .3s;pointer-events:none;
+}
+.ce-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 14px 34px color-mix(in srgb, var(--ce-clr,#7c3aed) 28%, transparent);border-color:color-mix(in srgb, var(--ce-clr,#7c3aed) 45%, transparent);}
+.ce-card:hover::before{opacity:1;animation:ceShine 1.1s ease forwards;}
+@keyframes ceShine{from{background-position:120% 0;}to{background-position:-20% 0;}}
+.ce-icon-wrap{
+  width:62px;height:62px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:12px;font-size:1.5rem;
+  animation:cePulse 2.6s ease-in-out infinite;
+}
+@keyframes cePulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb, var(--ce-clr,#7c3aed) 30%, transparent);}50%{box-shadow:0 0 0 8px color-mix(in srgb, var(--ce-clr,#7c3aed) 0%, transparent);}}
+.ce-title-en{font-weight:700;font-size:.93rem;color:#1F2937;line-height:1.3;}
+.ce-title-ta{font-size:.76rem;color:#6B7280;margin-top:3px;margin-bottom:14px;}
+.ce-dl-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:8px 0;width:100%;max-width:160px;
+  border-radius:999px;border:none;cursor:pointer;
+  background:linear-gradient(135deg, var(--ce-clr,#7c3aed), color-mix(in srgb, var(--ce-clr,#7c3aed) 70%, #000));
+  color:#fff;font-size:.82rem;font-weight:700;
+  text-decoration:none;box-shadow:0 3px 10px color-mix(in srgb, var(--ce-clr,#7c3aed) 40%, transparent);
+  transition:all .3s;margin-top:auto;
+}
+.ce-dl-btn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 6px 18px color-mix(in srgb, var(--ce-clr,#7c3aed) 55%, transparent);}
+.ce-soon{
+  grid-column:1/-1;text-align:center;padding:40px 20px;color:#6B7280;
+  border:2px dashed color-mix(in srgb, var(--ce-clr,#7c3aed) 35%, transparent);border-radius:18px;
+}
+.ce-soon i{font-size:1.8rem;color:var(--ce-clr,#7c3aed);margin-bottom:10px;display:block;animation:ceFloat 2.4s ease-in-out infinite;}
+@keyframes ceFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+
 /* ================================================================
    UTILITY CLASSES (self-contained replacement for Tailwind CDN —
    the runtime CDN script depends on an external domain that may be
@@ -638,6 +703,7 @@ img{max-width:100%;height:auto;display:block;}
         </div>
       </div>
       <a href="#textbooks" class="nav-link" data-i18n="navTextbooks">பாடப் புத்தகங்கள்</a>
+      <a href="#competitive-exams" class="nav-link" data-i18n="navCompetitive">போட்டித் தேர்வுகள்</a>
       <a href="#notices" class="nav-link" data-i18n="navNotice">அறிவிப்பு பலகை</a>
       <a href="#gallery" class="nav-link" data-i18n="navGallery">படக்காட்சி</a>
       <a href="#contact" class="nav-link" data-i18n="navContact">தொடர்பு</a>
@@ -652,6 +718,7 @@ img{max-width:100%;height:auto;display:block;}
     <a href="#teachers" class="nav-link block" data-i18n="navTeachers">ஆசிரியர்கள்</a>
     <a href="#papers" class="nav-link block" data-i18n="navPapers">வினாத்தாள்கள் ▾</a>
     <a href="#textbooks" class="nav-link block" data-i18n="navTextbooks">பாடப் புத்தகங்கள்</a>
+    <a href="#competitive-exams" class="nav-link block" data-i18n="navCompetitive">போட்டித் தேர்வுகள்</a>
     <a href="#notices" class="nav-link block" data-i18n="navNotice">அறிவிப்பு பலகை</a>
     <a href="#gallery" class="nav-link block" data-i18n="navGallery">படக்காட்சி</a>
     <a href="#contact" class="nav-link block" data-i18n="navContact">தொடர்பு</a>
@@ -767,6 +834,29 @@ img{max-width:100%;height:auto;display:block;}
     <div class="tb-class-tab"        data-tbcls="12" onclick="selTbClass('12')">Class 12</div>
   </div>
   <div id="tbGrid" class="mt-10"></div>
+</section>
+
+<!-- ============ COMPETITIVE EXAMS SECTION ============ -->
+<section id="competitive-exams" class="py-16 px-4 max-w-7xl mx-auto">
+  <div class="text-center mb-10">
+    <h2 class="section-title" data-i18n="ceSectionTitle">போட்டித் தேர்வுகள் / Competitive Exams</h2>
+    <p class="text-gray-500 mt-3 text-sm" data-i18n="ceSubtitle">Scholarship &amp; talent-search exam study material, class-wise</p>
+  </div>
+  <div class="flex flex-wrap gap-4 justify-center" id="ceClassTabs">
+    <div class="ce-class-tab active" style="--ce-clr:#d97706" data-cecls="8"  onclick="selCeClass('8')">
+      <span class="ce-tab-badge"><i class="fa-solid fa-trophy"></i></span>NMMS <span class="opacity-75">· Class 8</span>
+    </div>
+    <div class="ce-class-tab" style="--ce-clr:#0891b2" data-cecls="9" onclick="selCeClass('9')">
+      <span class="ce-tab-badge"><i class="fa-solid fa-handshake-angle"></i></span>TRUST <span class="opacity-75">· Class 9</span>
+    </div>
+    <div class="ce-class-tab" style="--ce-clr:#dc2626" data-cecls="10" onclick="selCeClass('10')">
+      <span class="ce-tab-badge"><i class="fa-solid fa-medal"></i></span>CMTSE <span class="opacity-75">· Class 10</span>
+    </div>
+    <div class="ce-class-tab" style="--ce-clr:#7c3aed" data-cecls="11" onclick="selCeClass('11')">
+      <span class="ce-tab-badge"><i class="fa-solid fa-star"></i></span>TTSE <span class="opacity-75">· Class 11</span>
+    </div>
+  </div>
+  <div id="ceGrid" class="mt-10"></div>
 </section>
 
 <!-- ============ NOTICE BOARD SECTION ============ -->
@@ -957,6 +1047,7 @@ img{max-width:100%;height:auto;display:block;}
 <!-- Auto-generated list of PDFs that actually exist in papers/ — regenerate with `python generate_manifest.py` -->
 <script src="./papers_drive_manifest.js"></script>
 <script src="./textbooks_drive_manifest.js"></script>
+<script src="./competitive_exams_drive_manifest.js"></script>
 <script>
 /* ================================================================
    TRANSLATIONS OBJECT — every visible string, en / ta
@@ -978,6 +1069,10 @@ const translations = {
     navTextbooks: "Textbooks",
     textbooksSectionTitle: "Textbooks",
     textbooksSubtitle: "Samacheer Kalvi – English Medium – New 2024 Edition",
+    navCompetitive: "Competitive Exams",
+    ceSectionTitle: "Competitive Exams",
+    ceSubtitle: "Scholarship & talent-search exam study material, class-wise",
+    ceComingSoon: "Study material coming soon",
     navNotice: "Notice Board",
     navGallery: "Gallery",
     navContact: "Contact",
@@ -1052,6 +1147,10 @@ const translations = {
     navTextbooks: "பாடப் புத்தகங்கள்",
     textbooksSectionTitle: "பாடப் புத்தகங்கள்",
     textbooksSubtitle: "சமச்சீர் கல்வி – ஆங்கில வழி – புதிய 2024 பதிப்பு",
+    navCompetitive: "போட்டித் தேர்வுகள்",
+    ceSectionTitle: "போட்டித் தேர்வுகள்",
+    ceSubtitle: "உதவித்தொகை மற்றும் திறன் தேடல் தேர்வு பயிற்சிப் பொருட்கள், வகுப்பு வாரியாக",
+    ceComingSoon: "பயிற்சிப் பொருட்கள் விரைவில்",
     navNotice: "அறிவிப்பு பலகை",
     navGallery: "படக்காட்சி",
     navContact: "தொடர்பு",
@@ -1140,6 +1239,7 @@ function applyLanguage(lang){
   renderSubjectGrid();
   renderNotices();
   renderTbGrid();
+  renderCeGrid();
 }
 
 function toggleLanguage(){
@@ -1407,6 +1507,83 @@ function selTbClass(cls){
   );
   renderTbGrid();
   document.getElementById('textbooks').scrollIntoView({behavior:'smooth'});
+}
+
+/* ================================================================
+   COMPETITIVE EXAMS (NMMS / TRUST / CMTSE / TTSE)
+================================================================ */
+const CE_META = {
+  8:  {key:"NMMS",  en:"NMMS",  ta:"என்.எம்.எம்.எஸ்",         clr:"#d97706", folder:"NMMS"},
+  9:  {key:"TRUST", en:"TRUST", ta:"டிரஸ்ட்",                  clr:"#0891b2", folder:"TRUST"},
+  10: {key:"CMTSE", en:"CMTSE", ta:"சி.எம்.டி.எஸ்.இ",         clr:"#dc2626", folder:"CMTSE"},
+  11: {key:"TTSE",  en:"TTSE",  ta:"டி.டி.எஸ்.இ",              clr:"#7c3aed", folder:"TTSE"}
+};
+
+const CE = {
+  8:[
+    {f:"DHARMAPURI NMMS PLANNER 2026 - 27.pdf", en:"Exam Planner 2026-27",     ta:"தேர்வுத் திட்டம் 2026-27",      ic:["fa-calendar-days","#fef3c7","#d97706"]},
+    {f:"NMMS EXAM GOVT BOOK.pdf",               en:"Govt. Exam Book",          ta:"அரசு தேர்வு புத்தகம்",           ic:["fa-book","#fff3e0","#e85d2f"]},
+    {f:"NMMS Maths - All Videos.pdf",           en:"Maths – All Videos",       ta:"கணிதம் – அனைத்து காணொளிகள்",   ic:["fa-square-root-variable","#e8f5e9","#16a34a"]},
+    {f:"NMMS Science - All Videos.pdf",         en:"Science – All Videos",     ta:"அறிவியல் – அனைத்து காணொளிகள்", ic:["fa-flask","#f3e8ff","#7c3aed"]},
+    {f:"NMMS Social Science - All Videos.pdf",  en:"Social Science – All Videos", ta:"சமூக அறிவியல் – அனைத்து காணொளிகள்", ic:["fa-earth-asia","#e0f7fa","#0891b2"]},
+    {f:"OMR SHEET - DHARMAPURI .pdf",           en:"OMR Sheet",                ta:"ஓ.எம்.ஆர். தாள்",               ic:["fa-file-pen","#fef2f2","#dc2626"]}
+  ],
+  9:[],
+  10:[],
+  11:[]
+};
+
+let activeCeClass = '8';
+
+function renderCeGrid(){
+  const grid = document.getElementById('ceGrid');
+  if(!grid) return;
+  const meta = CE_META[activeCeClass];
+  const items = CE[activeCeClass];
+  const viewLabel = currentLang === 'ta' ? 'பார்க்க' : 'View';
+
+  if(!items || items.length === 0){
+    grid.innerHTML = `
+      <div class="ce-soon" style="--ce-clr:${meta.clr}">
+        <i class="fa-solid fa-hourglass-half"></i>
+        ${currentLang === 'ta' ? translations.ta.ceComingSoon : translations.en.ceComingSoon}
+      </div>`;
+    if(window.AOS) AOS.refresh();
+    return;
+  }
+
+  let html = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:18px;">';
+  items.forEach(item => {
+    const path = `./Competitive Exams/${meta.folder}/${item.f}`;
+    const driveId = typeof DRIVE_CE !== 'undefined' ? DRIVE_CE[path] : undefined;
+    const title = `${meta.key} - ${item.en}`;
+    const [faClass, bg, fg] = item.ic;
+    const itemName = currentLang === 'ta' ? item.ta : item.en;
+    const notUploaded = currentLang === 'ta' ? 'இன்னும் பதிவேற்றப்படவில்லை' : 'Not uploaded yet';
+    html += `
+      <div class="ce-card" style="--ce-clr:${meta.clr}" data-aos="zoom-in">
+        <div class="ce-icon-wrap" style="background:${bg}">
+          <i class="fa-solid ${faClass}" style="color:${fg};font-size:1.5rem"></i>
+        </div>
+        <div class="ce-title-en">${itemName}</div>
+        <div class="ce-title-ta" style="margin-bottom:14px">${meta.key}</div>
+        ${driveId
+          ? `<button type="button" class="ce-dl-btn" onclick="openDrivePaper('${driveId}', '${title}')"><i class="fa-solid fa-eye"></i> ${viewLabel}</button>`
+          : `<button type="button" class="ce-dl-btn" style="opacity:.5;cursor:not-allowed" disabled title="${notUploaded}"><i class="fa-solid fa-eye"></i> ${viewLabel}</button>`}
+      </div>`;
+  });
+  html += '</div>';
+  grid.innerHTML = html;
+  if(window.AOS) AOS.refresh();
+}
+
+function selCeClass(cls){
+  activeCeClass = String(cls);
+  document.querySelectorAll('.ce-class-tab').forEach(t =>
+    t.classList.toggle('active', t.getAttribute('data-cecls') === activeCeClass)
+  );
+  renderCeGrid();
+  document.getElementById('competitive-exams').scrollIntoView({behavior:'smooth'});
 }
 
 /* ================================================================
