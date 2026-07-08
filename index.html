@@ -600,6 +600,11 @@ footer h4{color:var(--accent);font-weight:700;margin-bottom:10px;}
   grid-column:1/-1;text-align:center;padding:40px 20px;color:#6B7280;
   border:2px dashed color-mix(in srgb, var(--ce-clr,#7c3aed) 35%, transparent);border-radius:18px;
 }
+.ce-group-title{
+  font-size:1.05rem;font-weight:700;color:var(--ce-clr,#7c3aed);
+  margin:0 0 16px;padding-left:14px;
+  border-left:4px solid var(--ce-clr,#7c3aed);
+}
 .ce-soon i{font-size:1.8rem;color:var(--ce-clr,#7c3aed);margin-bottom:10px;display:block;animation:ceFloat 2.4s ease-in-out infinite;}
 @keyframes ceFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
 
@@ -1524,17 +1529,79 @@ const CE_META = {
   11: {key:"TTSE",  en:"TTSE",  ta:"டி.டி.எஸ்.இ",              clr:"#7c3aed", folder:"TTSE"}
 };
 
+const CE_ICONS = {
+  schedule: ["fa-calendar-days","#fef3c7","#d97706"],
+  papers:   ["fa-file-lines","#e0f2fe","#0369a1"],
+  keys:     ["fa-clipboard-check","#dcfce7","#16a34a"]
+};
+
 const CE = {
   8:[
-    {f:"DHARMAPURI NMMS PLANNER 2026 - 27.pdf", en:"Exam Planner 2026-27",     ta:"தேர்வுத் திட்டம் 2026-27",      ic:["fa-calendar-days","#fef3c7","#d97706"]},
-    {f:"NMMS EXAM GOVT BOOK.pdf",               en:"Govt. Exam Book",          ta:"அரசு தேர்வு புத்தகம்",           ic:["fa-book","#fff3e0","#e85d2f"]},
-    {f:"NMMS Maths - All Videos.pdf",           en:"Maths – All Videos",       ta:"கணிதம் – அனைத்து காணொளிகள்",   ic:["fa-square-root-variable","#e8f5e9","#16a34a"]},
-    {f:"NMMS Science - All Videos.pdf",         en:"Science – All Videos",     ta:"அறிவியல் – அனைத்து காணொளிகள்", ic:["fa-flask","#f3e8ff","#7c3aed"]},
-    {f:"NMMS Social Science - All Videos.pdf",  en:"Social Science – All Videos", ta:"சமூக அறிவியல் – அனைத்து காணொளிகள்", ic:["fa-earth-asia","#e0f7fa","#0891b2"]},
-    {f:"OMR SHEET - DHARMAPURI .pdf",           en:"OMR Sheet",                ta:"ஓ.எம்.ஆர். தாள்",               ic:["fa-file-pen","#fef2f2","#dc2626"]}
+    {group:"Study Material", items:[
+      {f:"DHARMAPURI NMMS PLANNER 2026 - 27.pdf", en:"Exam Planner 2026-27",     ta:"தேர்வுத் திட்டம் 2026-27",      ic:["fa-calendar-days","#fef3c7","#d97706"]},
+      {f:"NMMS EXAM GOVT BOOK.pdf",               en:"Govt. Exam Book",          ta:"அரசு தேர்வு புத்தகம்",           ic:["fa-book","#fff3e0","#e85d2f"]},
+      {f:"NMMS Maths - All Videos.pdf",           en:"Maths – All Videos",       ta:"கணிதம் – அனைத்து காணொளிகள்",   ic:["fa-square-root-variable","#e8f5e9","#16a34a"]},
+      {f:"NMMS Science - All Videos.pdf",         en:"Science – All Videos",     ta:"அறிவியல் – அனைத்து காணொளிகள்", ic:["fa-flask","#f3e8ff","#7c3aed"]},
+      {f:"NMMS Social Science - All Videos.pdf",  en:"Social Science – All Videos", ta:"சமூக அறிவியல் – அனைத்து காணொளிகள்", ic:["fa-earth-asia","#e0f7fa","#0891b2"]},
+      {f:"OMR SHEET - DHARMAPURI .pdf",           en:"OMR Sheet",                ta:"ஓ.எம்.ஆர். தாள்",               ic:["fa-file-pen","#fef2f2","#dc2626"]}
+    ]}
   ],
-  9:[],
-  10:[],
+  9:[
+    {group:"Exam Schedule", groupTa:"தேர்வு அட்டவணை", ic:CE_ICONS.schedule, items:[
+      {f:"TRUST 2025 SCHEDULE - DHARMAPURI-3.pdf", en:"TRUST 2025 Exam Schedule (Dharmapuri)", ta:"டிரஸ்ட் 2025 தேர்வு அட்டவணை (தர்மபுரி)"}
+    ]},
+    {group:"Question Papers", groupTa:"வினாத்தாள்கள்", ic:CE_ICONS.papers, items:[
+      {f:"TRUST - UNIT TEST - 1 EM 28.8.2 025.pdf",     en:"Unit Test 1 – English Medium (28.08.2025)", ta:"பிரிவுத் தேர்வு 1 – ஆங்கில வழி (28.08.2025)"},
+      {f:"TRUST - UNIT TEST-1 TM 28.8.2025.pdf",        en:"Unit Test 1 – Tamil Medium (28.08.2025)",   ta:"பிரிவுத் தேர்வு 1 – தமிழ் வழி (28.08.2025)"},
+      {f:"TRUST UNIT TEST-2 EM 4.9.2025.pdf",           en:"Unit Test 2 – English Medium (04.09.2025)", ta:"பிரிவுத் தேர்வு 2 – ஆங்கில வழி (04.09.2025)"},
+      {f:"TRUST UNIT TEST-2 TM 4.9.2025.pdf",           en:"Unit Test 2 – Tamil Medium (04.09.2025)",   ta:"பிரிவுத் தேர்வு 2 – தமிழ் வழி (04.09.2025)"},
+      {f:"TRUST - UNIT TEST 3 ( 02.10.2025 ) EM.pdf",   en:"Unit Test 3 – English Medium (02.10.2025)", ta:"பிரிவுத் தேர்வு 3 – ஆங்கில வழி (02.10.2025)"},
+      {f:"TRUST - UNIT TEST 3 ( 02.10.2025 )TM.pdf",    en:"Unit Test 3 – Tamil Medium (02.10.2025)",   ta:"பிரிவுத் தேர்வு 3 – தமிழ் வழி (02.10.2025)"},
+      {f:"TRUST UNIT 4 - EM 09.10.2025.pdf",            en:"Unit Test 4 – English Medium (09.10.2025)", ta:"பிரிவுத் தேர்வு 4 – ஆங்கில வழி (09.10.2025)"},
+      {f:"TRUST UNIT 4 -TM 09.10.2025.pdf",             en:"Unit Test 4 – Tamil Medium (09.10.2025)",   ta:"பிரிவுத் தேர்வு 4 – தமிழ் வழி (09.10.2025)"},
+      {f:"TRUST UNIT 5 - EM 16.10.2025.pdf",            en:"Unit Test 5 – English Medium (16.10.2025)", ta:"பிரிவுத் தேர்வு 5 – ஆங்கில வழி (16.10.2025)"},
+      {f:"TRUST UNIT 5 - TM 16.10.2025.pdf",            en:"Unit Test 5 – Tamil Medium (16.10.2025)",   ta:"பிரிவுத் தேர்வு 5 – தமிழ் வழி (16.10.2025)"},
+      {f:"TRUST UNIT 6 EM ( 23.10.2015 ).pdf",          en:"Unit Test 6 – English Medium (23.10.2025)", ta:"பிரிவுத் தேர்வு 6 – ஆங்கில வழி (23.10.2025)"},
+      {f:"TRUST UNIT 6 TM ( 23.10.2025).pdf",           en:"Unit Test 6 – Tamil Medium (23.10.2025)",   ta:"பிரிவுத் தேர்வு 6 – தமிழ் வழி (23.10.2025)"},
+      {f:"TRUST UNIT 7 - EM 30.10.2025.pdf",            en:"Unit Test 7 – English Medium (30.10.2025)", ta:"பிரிவுத் தேர்வு 7 – ஆங்கில வழி (30.10.2025)"},
+      {f:"TRUST UNIT 7 - TM 30.10.2025.pdf",            en:"Unit Test 7 – Tamil Medium (30.10.2025)",   ta:"பிரிவுத் தேர்வு 7 – தமிழ் வழி (30.10.2025)"}
+    ]},
+    {group:"Answer Keys", groupTa:"விடை திறவுகோல்கள்", ic:CE_ICONS.keys, items:[
+      {f:"KEY ANSWER 28.8.2025-1.pdf",               en:"Answer Key – Unit Test 1 (28.08.2025)", ta:"விடை திறவுகோல் – பிரிவுத் தேர்வு 1 (28.08.2025)"},
+      {f:"KEY ANSWER UNIT TEST -2 ( 4.9.2025).pdf",  en:"Answer Key – Unit Test 2 (04.09.2025)", ta:"விடை திறவுகோல் – பிரிவுத் தேர்வு 2 (04.09.2025)"},
+      {f:"KEY ANSWER UNIT TEST -3 ( 02.10.2025).pdf",en:"Answer Key – Unit Test 3 (02.10.2025)", ta:"விடை திறவுகோல் – பிரிவுத் தேர்வு 3 (02.10.2025)"},
+      {f:"KEY ANSWER UNIT TEST -4 ( 09.10.2025).pdf",en:"Answer Key – Unit Test 4 (09.10.2025)", ta:"விடை திறவுகோல் – பிரிவுத் தேர்வு 4 (09.10.2025)"},
+      {f:"Trust Unit4 Maths Answer 09.10.2025.pdf",  en:"Answer Key – Unit Test 4, Maths (09.10.2025)", ta:"விடை திறவுகோல் – பிரிவுத் தேர்வு 4, கணிதம் (09.10.2025)"},
+      {f:"KEY ANSWER UNIT TEST -5 ( 16.10.2025).pdf",en:"Answer Key – Unit Test 5 (16.10.2025)", ta:"விடை திறவுகோல் – பிரிவுத் தேர்வு 5 (16.10.2025)"},
+      {f:"KEY ANSWER UNIT TEST - 6 ( 23.10.2025).pdf",en:"Answer Key – Unit Test 6 (23.10.2025)", ta:"விடை திறவுகோல் – பிரிவுத் தேர்வு 6 (23.10.2025)"},
+      {f:"KEY ANSWER UNIT TEST - 7 ( 30.10.2025).pdf",en:"Answer Key – Unit Test 7 (30.10.2025)", ta:"விடை திறவுகோல் – பிரிவுத் தேர்வு 7 (30.10.2025)"},
+      {f:"KEY ANSWER FOR TRUST FULL TEST 1.pdf",     en:"Answer Key – Full Test 1",  ta:"விடை திறவுகோல் – முழுத் தேர்வு 1"},
+      {f:"KEY ANSWER FULL TEST 1.pdf",                en:"Answer Key – Full Test 1 (Additional)", ta:"விடை திறவுகோல் – முழுத் தேர்வு 1 (கூடுதல்)"},
+      {f:"KEY ANSWER FOR TRUST FULL TEST 2.pdf",     en:"Answer Key – Full Test 2",  ta:"விடை திறவுகோல் – முழுத் தேர்வு 2"},
+      {f:"KEY ANSWER FOR TRUST FULL TEST 3.pdf",     en:"Answer Key – Full Test 3",  ta:"விடை திறவுகோல் – முழுத் தேர்வு 3"},
+      {f:"KEY ANSWER FOR TRUST FULL TEST 4.pdf",     en:"Answer Key – Full Test 4",  ta:"விடை திறவுகோல் – முழுத் தேர்வு 4"}
+    ]}
+  ],
+  10:[
+    {group:"Exam Schedule", groupTa:"தேர்வு அட்டவணை", ic:CE_ICONS.schedule, items:[
+      {f:"DHARMAPURI DISTRICT - CMTSE - 2025-2026 REVISED SCHEDULE.pdf", en:"CMTSE 2025-26 Revised Schedule (Dharmapuri)", ta:"சி.எம்.டி.எஸ்.இ 2025-26 திருத்தப்பட்ட அட்டவணை (தர்மபுரி)"},
+      {f:"DHARMAPURI DISTRICT - CMTSE - 2025-2026 SCHEDULE-1.pdf",       en:"CMTSE 2025-26 Schedule (Dharmapuri)",         ta:"சி.எம்.டி.எஸ்.இ 2025-26 அட்டவணை (தர்மபுரி)"}
+    ]},
+    {group:"Question Papers", groupTa:"வினாத்தாள்கள்", ic:CE_ICONS.papers, items:[
+      {f:"CM TALENT EXAM TEST 1.pdf", en:"Test 1 (20.08.2025)", ta:"தேர்வு 1 (20.08.2025)"},
+      {f:"CM TALENT EXAM TEST 2.pdf", en:"Test 2 (26.08.2025)", ta:"தேர்வு 2 (26.08.2025)"},
+      {f:"CM TALENT EXAM TEST 4.pdf", en:"Test 4 (10.09.2025)", ta:"தேர்வு 4 (10.09.2025)"},
+      {f:"CM TALENT EXAM TEST 5.pdf",              en:"Test 5",             ta:"தேர்வு 5"},
+      {f:"CM TALENT EXAM TEST 6.pdf",              en:"Test 6",             ta:"தேர்வு 6"},
+      {f:"CMTSE MODEL EXAM II - PAPER 2 (SCIENCE AND SOCIAL SCIENCE) - 2026.pdf", en:"Model Exam II – Paper 2 (Science & Social Science) 2026", ta:"மாதிரி தேர்வு II – வினாத்தாள் 2 (அறிவியல் & சமூக அறிவியல்) 2026"},
+      {f:"MODEL MATHS  PAPER 2  FULL TEST(12.01.2026).pdf", en:"Model Maths – Paper 2 Full Test (12.01.2026)", ta:"மாதிரி கணிதம் – வினாத்தாள் 2 முழுத் தேர்வு (12.01.2026)"}
+    ]},
+    {group:"Answer Keys", groupTa:"விடை திறவுகோல்கள்", ic:CE_ICONS.keys, items:[
+      {f:"CM TALENT EXAM 2 ANSWER KEY.pdf", en:"Test 2 Answer Key (26.08.2025)", ta:"தேர்வு 2 விடை திறவுகோல் (26.08.2025)"},
+      {f:"CM TALENT EXAM 6 ANSWER KEY.pdf",                  en:"Test 6 Answer Key",              ta:"தேர்வு 6 விடை திறவுகோல்"},
+      {f:"MODEL SCIENCE AND SOCIAL SCIENCE PAPER 2 FULL TEST 2 KEY(13.01.2026).pdf", en:"Model Science & Social Science – Paper 2 Full Test 2, Answer Key (13.01.2026)", ta:"மாதிரி அறிவியல் & சமூக அறிவியல் – வினாத்தாள் 2 முழுத் தேர்வு 2, விடை திறவுகோல் (13.01.2026)"}
+    ]}
+  ],
   11:[]
 };
 
@@ -1544,10 +1611,11 @@ function renderCeGrid(){
   const grid = document.getElementById('ceGrid');
   if(!grid) return;
   const meta = CE_META[activeCeClass];
-  const items = CE[activeCeClass];
+  const groups = CE[activeCeClass];
   const viewLabel = currentLang === 'ta' ? 'பார்க்க' : 'View';
+  const totalItems = (groups || []).reduce((sum, g) => sum + g.items.length, 0);
 
-  if(!items || items.length === 0){
+  if(!groups || totalItems === 0){
     grid.innerHTML = `
       <div class="ce-soon" style="--ce-clr:${meta.clr}">
         <i class="fa-solid fa-hourglass-half"></i>
@@ -1557,27 +1625,32 @@ function renderCeGrid(){
     return;
   }
 
-  let html = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:18px;">';
-  items.forEach(item => {
-    const path = `./Competitive Exams/${meta.folder}/${item.f}`;
-    const driveId = typeof DRIVE_CE !== 'undefined' ? DRIVE_CE[path] : undefined;
-    const title = `${meta.key} - ${item.en}`;
-    const [faClass, bg, fg] = item.ic;
-    const itemName = currentLang === 'ta' ? item.ta : item.en;
-    const notUploaded = currentLang === 'ta' ? 'இன்னும் பதிவேற்றப்படவில்லை' : 'Not uploaded yet';
-    html += `
-      <div class="ce-card" style="--ce-clr:${meta.clr}" data-aos="zoom-in">
-        <div class="ce-icon-wrap" style="background:${bg}">
-          <i class="fa-solid ${faClass}" style="color:${fg};font-size:1.5rem"></i>
-        </div>
-        <div class="ce-title-en">${itemName}</div>
-        <div class="ce-title-ta" style="margin-bottom:14px">${meta.key}</div>
-        ${driveId
-          ? `<button type="button" class="ce-dl-btn" onclick="openDrivePaper('${driveId}', '${title}')"><i class="fa-solid fa-eye"></i> ${viewLabel}</button>`
-          : `<button type="button" class="ce-dl-btn" style="opacity:.5;cursor:not-allowed" disabled title="${notUploaded}"><i class="fa-solid fa-eye"></i> ${viewLabel}</button>`}
-      </div>`;
+  const notUploaded = currentLang === 'ta' ? 'இன்னும் பதிவேற்றப்படவில்லை' : 'Not uploaded yet';
+  let html = '';
+  groups.forEach(grp => {
+    const grpLabel = currentLang === 'ta' && grp.groupTa ? grp.groupTa : grp.group;
+    html += `<h3 class="ce-group-title" style="--ce-clr:${meta.clr}">${grpLabel}</h3>`;
+    html += '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:18px;margin-bottom:32px;">';
+    grp.items.forEach(item => {
+      const path = `./Competitive Exams/${meta.folder}/${item.f}`;
+      const driveId = typeof DRIVE_CE !== 'undefined' ? DRIVE_CE[path] : undefined;
+      const title = `${meta.key} - ${item.en}`;
+      const [faClass, bg, fg] = item.ic || grp.ic;
+      const itemName = currentLang === 'ta' ? item.ta : item.en;
+      html += `
+        <div class="ce-card" style="--ce-clr:${meta.clr}" data-aos="zoom-in">
+          <div class="ce-icon-wrap" style="background:${bg}">
+            <i class="fa-solid ${faClass}" style="color:${fg};font-size:1.5rem"></i>
+          </div>
+          <div class="ce-title-en">${itemName}</div>
+          <div class="ce-title-ta" style="margin-bottom:14px">${meta.key}</div>
+          ${driveId
+            ? `<button type="button" class="ce-dl-btn" onclick="openDrivePaper('${driveId}', '${title}')"><i class="fa-solid fa-eye"></i> ${viewLabel}</button>`
+            : `<button type="button" class="ce-dl-btn" style="opacity:.5;cursor:not-allowed" disabled title="${notUploaded}"><i class="fa-solid fa-eye"></i> ${viewLabel}</button>`}
+        </div>`;
+    });
+    html += '</div>';
   });
-  html += '</div>';
   grid.innerHTML = html;
   if(window.AOS) AOS.refresh();
 }
