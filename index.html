@@ -754,7 +754,15 @@ img{max-width:100%;height:auto;display:block;}
         </div>
       </div>
       <a href="#textbooks" class="nav-link" data-i18n="navTextbooks">பாடப் புத்தகங்கள்</a>
-      <a href="#competitive-exams" class="nav-link" data-i18n="navCompetitive">போட்டித் தேர்வுகள்</a>
+      <div class="dropdown relative">
+        <span class="nav-link cursor-pointer" data-i18n="navCompetitive">போட்டித் தேர்வுகள் ▾</span>
+        <div class="dropdown-menu">
+          <a href="#competitive-exams" onclick="selCeClass('8')">NMMS · Class 8</a>
+          <a href="#competitive-exams" onclick="selCeClass('9')">TRUST · Class 9</a>
+          <a href="#competitive-exams" onclick="selCeClass('10')">CMTSE · Class 10</a>
+          <a href="#competitive-exams" onclick="selCeClass('11')">TTSE · Class 11</a>
+        </div>
+      </div>
       <a href="#notices" class="nav-link" data-i18n="navNotice">அறிவிப்பு பலகை</a>
       <a href="#gallery" class="nav-link" data-i18n="navGallery">படக்காட்சி</a>
       <a href="#contact" class="nav-link" data-i18n="navContact">தொடர்பு</a>
@@ -1120,7 +1128,7 @@ const translations = {
     navTextbooks: "Textbooks",
     textbooksSectionTitle: "Textbooks",
     textbooksSubtitle: "Samacheer Kalvi – English Medium – New 2024 Edition",
-    navCompetitive: "Competitive Exams",
+    navCompetitive: "Competitive Exams ▾",
     ceSectionTitle: "Competitive Exams",
     ceSubtitle: "Scholarship & talent-search exam study material, class-wise",
     ceComingSoon: "Study material coming soon",
@@ -1198,7 +1206,7 @@ const translations = {
     navTextbooks: "பாடப் புத்தகங்கள்",
     textbooksSectionTitle: "பாடப் புத்தகங்கள்",
     textbooksSubtitle: "சமச்சீர் கல்வி – ஆங்கில வழி – புதிய 2024 பதிப்பு",
-    navCompetitive: "போட்டித் தேர்வுகள்",
+    navCompetitive: "போட்டித் தேர்வுகள் ▾",
     ceSectionTitle: "போட்டித் தேர்வுகள்",
     ceSubtitle: "உதவித்தொகை மற்றும் திறன் தேடல் தேர்வு பயிற்சிப் பொருட்கள், வகுப்பு வாரியாக",
     ceComingSoon: "பயிற்சிப் பொருட்கள் விரைவில்",
