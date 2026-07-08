@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>அரசு மேல்நிலைப் பள்ளி, பஞ்சப்பள்ளி | Govt. Higher Secondary School, Panjapalli</title>
+<title>Govt. Higher Secondary School, Panjapalli</title>
 <meta name="description" content="Official website of Government Higher Secondary School, Panjapalli, Dharmapuri District, Tamil Nadu. Question papers, textbooks, notices, and school information for Classes 8-12.">
 <link rel="canonical" href="https://ghsspanjapalli.vercel.app/">
 <link rel="icon" type="image/png" href="./images/govt.png">
@@ -104,43 +104,27 @@ body{
   right:14px;
   z-index:9999;
 }
-.lang-pill{
+.lang-square{
   display:flex;
   align-items:center;
-  gap:6px;
+  justify-content:center;
+  width:40px;
+  height:40px;
   background:var(--dark);
   border:2px solid var(--accent);
-  border-radius:var(--radius-pill);
-  padding:6px 14px;
+  border-radius:12px;
   cursor:pointer;
   color:var(--accent);
-  font-weight:700;
-  font-size:.85rem;
+  font-weight:800;
+  font-size:1.05rem;
   box-shadow:0 4px 18px rgba(0,0,0,.35);
   transition:all .3s ease;
   user-select:none;
 }
-.lang-pill:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(245,166,35,.5);}
-.lang-track{
-  position:relative;
-  width:46px;
-  height:22px;
-  background:rgba(245,166,35,.25);
-  border-radius:999px;
-  border:1px solid var(--accent);
-}
-.lang-knob{
-  position:absolute;
-  top:1px;
-  left:1px;
-  width:18px;
-  height:18px;
-  background:var(--accent);
-  border-radius:50%;
-  transition:left .35s cubic-bezier(.68,-0.55,.27,1.55);
-}
-body.lang-ta .lang-knob{left:1px;}
-body.lang-en .lang-knob{left:25px;}
+.lang-square:hover{transform:translateY(-2px) scale(1.05);box-shadow:0 6px 22px rgba(245,166,35,.5);}
+.lang-square:active{transform:scale(.92);}
+.lang-square span{animation:langPop .3s ease;}
+@keyframes langPop{from{opacity:0;transform:scale(.5) rotate(-20deg);}to{opacity:1;transform:scale(1) rotate(0);}}
 
 /* ===== Top Utility Bar ===== */
 .utility-bar{
@@ -697,10 +681,8 @@ img{max-width:100%;height:auto;display:block;}
 
 <!-- ============ LANGUAGE TOGGLE (fixed, always visible) ============ -->
 <div id="langToggleWrap">
-  <div class="lang-pill" onclick="toggleLanguage()">
-    <i class="fa-solid fa-globe"></i>
-    <span id="langToggleText">தமிழில் காண்க</span>
-    <div class="lang-track"><div class="lang-knob"></div></div>
+  <div class="lang-square" onclick="toggleLanguage()" id="langToggleBtn" title="தமிழில் காண்க">
+    <span id="langToggleText">A</span>
   </div>
 </div>
 
@@ -1241,7 +1223,13 @@ function applyLanguage(lang){
     }
   });
 
-  document.getElementById('langToggleText').textContent = translations[lang].langToggle;
+  const langBtn = document.getElementById('langToggleBtn');
+  const langText = document.getElementById('langToggleText');
+  langBtn.title = translations[lang].langToggle;
+  langText.textContent = lang === 'ta' ? 'அ' : 'A';
+  langText.style.animation = 'none';
+  void langText.offsetHeight;
+  langText.style.animation = '';
 
   // Re-render subject grid + notices (they are built dynamically, need re-translation)
   renderSubjectGrid();
