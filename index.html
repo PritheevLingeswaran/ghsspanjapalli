@@ -682,7 +682,7 @@ img{max-width:100%;height:auto;display:block;}
 <!-- ============ LANGUAGE TOGGLE (fixed, always visible) ============ -->
 <div id="langToggleWrap">
   <div class="lang-square" onclick="toggleLanguage()" id="langToggleBtn" title="தமிழில் காண்க">
-    <span id="langToggleText">A</span>
+    <span id="langToggleText">அ</span>
   </div>
 </div>
 
@@ -1226,7 +1226,7 @@ function applyLanguage(lang){
   const langBtn = document.getElementById('langToggleBtn');
   const langText = document.getElementById('langToggleText');
   langBtn.title = translations[lang].langToggle;
-  langText.textContent = lang === 'ta' ? 'அ' : 'A';
+  langText.textContent = lang === 'ta' ? 'A' : 'அ';
   langText.style.animation = 'none';
   void langText.offsetHeight;
   langText.style.animation = '';
