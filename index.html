@@ -360,17 +360,48 @@ nav.main-nav.scrolled{
 
 /* Class tabs */
 .class-tab{
-  padding:8px 20px;
+  position:relative;overflow:hidden;
+  padding:8px 20px 8px 14px;
   border-radius:999px;
   cursor:pointer;
   font-weight:600;
-  border:2px solid var(--primary);
-  color:var(--primary);
+  border:2px solid var(--pc-clr, var(--primary));
+  color:var(--pc-clr, var(--primary));
+  display:inline-flex;align-items:center;gap:8px;
   transition:all .3s;
 }
-.class-tab.active{background:var(--accent);border-color:var(--accent);color:var(--dark);}
+.class-tab .pc-tab-badge{
+  width:24px;height:24px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--pc-clr, var(--primary));color:#fff;font-size:.72rem;font-weight:800;
+  transition:transform .3s;
+}
+.class-tab:hover:not(.active){background:color-mix(in srgb, var(--pc-clr, var(--primary)) 8%, #fff);}
+.class-tab:hover .pc-tab-badge{transform:rotate(-14deg) scale(1.1);}
+.class-tab.active{background:var(--pc-clr, var(--accent));border-color:var(--pc-clr, var(--accent));color:#fff;box-shadow:0 6px 18px color-mix(in srgb, var(--pc-clr, var(--accent)) 45%, transparent);}
+.class-tab.active .pc-tab-badge{background:#fff;color:var(--pc-clr, var(--accent));animation:ceBadgeSpin .6s ease;}
 
-.subject-card{padding:18px;}
+.subject-card{
+  position:relative;overflow:hidden;
+  padding:18px;
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+.subject-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg, transparent 40%, color-mix(in srgb, var(--pc-clr, var(--primary)) 14%, transparent) 50%, transparent 60%);
+  background-size:250% 250%;background-position:120% 0;
+  opacity:0;transition:opacity .3s;pointer-events:none;
+}
+.subject-card:hover{transform:translateY(-5px);box-shadow:0 10px 28px color-mix(in srgb, var(--pc-clr, var(--primary)) 25%, transparent);}
+.subject-card:hover::before{opacity:1;animation:ceShine 1.1s ease forwards;}
+.pc-icon-wrap{
+  width:52px;height:52px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:color-mix(in srgb, var(--pc-clr, var(--primary)) 14%, #fff);
+  margin-bottom:4px;font-size:1.4rem;
+  animation:pcPulse 2.6s ease-in-out infinite;
+}
+@keyframes pcPulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb, var(--pc-clr, var(--primary)) 30%, transparent);}50%{box-shadow:0 0 0 8px color-mix(in srgb, var(--pc-clr, var(--primary)) 0%, transparent);}}
 .year-btn{
   padding:4px 10px;
   border-radius:6px;
@@ -454,13 +485,24 @@ footer h4{color:var(--accent);font-weight:700;margin-bottom:10px;}
 
 /* ===== Textbook section ===== */
 .tb-class-tab{
-  padding:8px 22px;border-radius:999px;cursor:pointer;
-  font-weight:700;border:2px solid #16a34a;color:#16a34a;
+  position:relative;overflow:hidden;
+  padding:8px 22px 8px 16px;border-radius:999px;cursor:pointer;
+  font-weight:700;border:2px solid var(--tc-clr,#16a34a);color:var(--tc-clr,#16a34a);
+  display:inline-flex;align-items:center;gap:8px;
   transition:all .3s;font-size:.9rem;
 }
-.tb-class-tab.active{background:#16a34a;border-color:#16a34a;color:#fff;box-shadow:0 4px 14px rgba(22,163,74,.35);}
-.tb-class-tab:hover:not(.active){background:#f0fdf4;}
+.tb-class-tab .tb-tab-badge{
+  width:24px;height:24px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--tc-clr,#16a34a);color:#fff;font-size:.72rem;font-weight:800;
+  transition:transform .3s;
+}
+.tb-class-tab.active{background:var(--tc-clr,#16a34a);border-color:var(--tc-clr,#16a34a);color:#fff;box-shadow:0 4px 14px color-mix(in srgb, var(--tc-clr,#16a34a) 45%, transparent);}
+.tb-class-tab.active .tb-tab-badge{background:#fff;color:var(--tc-clr,#16a34a);animation:ceBadgeSpin .6s ease;}
+.tb-class-tab:hover:not(.active){background:color-mix(in srgb, var(--tc-clr,#16a34a) 8%, #fff);}
+.tb-class-tab:hover .tb-tab-badge{transform:rotate(-14deg) scale(1.1);}
 .tb-card{
+  position:relative;overflow:hidden;
   background:#fff;border-radius:18px;
   border:1px solid rgba(22,163,74,.18);
   box-shadow:0 4px 18px rgba(0,0,0,.07);
@@ -468,12 +510,21 @@ footer h4{color:var(--accent);font-weight:700;margin-bottom:10px;}
   transition:all .3s ease;
   display:flex;flex-direction:column;align-items:center;
 }
-.tb-card:hover{transform:translateY(-5px);box-shadow:0 10px 32px rgba(22,163,74,.22);border-color:rgba(22,163,74,.4);}
+.tb-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg, transparent 40%, color-mix(in srgb, var(--pulse-clr,#16a34a) 16%, transparent) 50%, transparent 60%);
+  background-size:250% 250%;background-position:120% 0;
+  opacity:0;transition:opacity .3s;pointer-events:none;
+}
+.tb-card:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 10px 32px color-mix(in srgb, var(--pulse-clr,#16a34a) 30%, transparent);border-color:color-mix(in srgb, var(--pulse-clr,#16a34a) 45%, transparent);}
+.tb-card:hover::before{opacity:1;animation:ceShine 1.1s ease forwards;}
 .tb-icon-wrap{
   width:62px;height:62px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   margin-bottom:12px;font-size:1.5rem;
+  animation:tbPulse 2.6s ease-in-out infinite;
 }
+@keyframes tbPulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb, var(--pulse-clr,#16a34a) 35%, transparent);}50%{box-shadow:0 0 0 8px color-mix(in srgb, var(--pulse-clr,#16a34a) 0%, transparent);}}
 .tb-subject-en{font-weight:700;font-size:.93rem;color:#1F2937;line-height:1.3;}
 .tb-subject-ta{font-size:.76rem;color:#6B7280;margin-top:3px;margin-bottom:14px;}
 .tb-dl-btn{
@@ -809,11 +860,11 @@ img{max-width:100%;height:auto;display:block;}
 
   <!-- Class tabs -->
   <div class="flex flex-wrap gap-3 justify-center mt-8" id="classTabs">
-    <div class="class-tab" data-class="8" onclick="selectClassTab('8')">Class 8</div>
-    <div class="class-tab" data-class="9" onclick="selectClassTab('9')">Class 9</div>
-    <div class="class-tab active" data-class="10" onclick="selectClassTab('10')">Class 10</div>
-    <div class="class-tab" data-class="11" onclick="selectClassTab('11')">Class 11</div>
-    <div class="class-tab" data-class="12" onclick="selectClassTab('12')">Class 12</div>
+    <div class="class-tab" style="--pc-clr:#2563eb" data-class="8" onclick="selectClassTab('8')"><span class="pc-tab-badge">8</span>Class 8</div>
+    <div class="class-tab" style="--pc-clr:#16a34a" data-class="9" onclick="selectClassTab('9')"><span class="pc-tab-badge">9</span>Class 9</div>
+    <div class="class-tab active" style="--pc-clr:#d97706" data-class="10" onclick="selectClassTab('10')"><span class="pc-tab-badge">10</span>Class 10</div>
+    <div class="class-tab" style="--pc-clr:#7c3aed" data-class="11" onclick="selectClassTab('11')"><span class="pc-tab-badge">11</span>Class 11</div>
+    <div class="class-tab" style="--pc-clr:#dc2626" data-class="12" onclick="selectClassTab('12')"><span class="pc-tab-badge">12</span>Class 12</div>
   </div>
 
   <!-- Subject grids injected by JS -->
@@ -827,11 +878,11 @@ img{max-width:100%;height:auto;display:block;}
     <p class="text-gray-500 mt-3 text-sm" data-i18n="textbooksSubtitle">Samacheer Kalvi – English Medium – New 2024 Edition</p>
   </div>
   <div class="flex flex-wrap gap-3 justify-center" id="tbClassTabs">
-    <div class="tb-class-tab active" data-tbcls="8"  onclick="selTbClass('8')">Class 8</div>
-    <div class="tb-class-tab"        data-tbcls="9"  onclick="selTbClass('9')">Class 9</div>
-    <div class="tb-class-tab"        data-tbcls="10" onclick="selTbClass('10')">Class 10</div>
-    <div class="tb-class-tab"        data-tbcls="11" onclick="selTbClass('11')">Class 11</div>
-    <div class="tb-class-tab"        data-tbcls="12" onclick="selTbClass('12')">Class 12</div>
+    <div class="tb-class-tab active" style="--tc-clr:#2563eb" data-tbcls="8"  onclick="selTbClass('8')"><span class="tb-tab-badge">8</span>Class 8</div>
+    <div class="tb-class-tab"        style="--tc-clr:#16a34a" data-tbcls="9"  onclick="selTbClass('9')"><span class="tb-tab-badge">9</span>Class 9</div>
+    <div class="tb-class-tab"        style="--tc-clr:#d97706" data-tbcls="10" onclick="selTbClass('10')"><span class="tb-tab-badge">10</span>Class 10</div>
+    <div class="tb-class-tab"        style="--tc-clr:#7c3aed" data-tbcls="11" onclick="selTbClass('11')"><span class="tb-tab-badge">11</span>Class 11</div>
+    <div class="tb-class-tab"        style="--tc-clr:#dc2626" data-tbcls="12" onclick="selTbClass('12')"><span class="tb-tab-badge">12</span>Class 12</div>
   </div>
   <div id="tbGrid" class="mt-10"></div>
 </section>
@@ -1310,6 +1361,7 @@ const examTypesByClass = {
   12:["Term 1","Term 2","Public Exam"]
 };
 
+const CLASS_COLORS = {8:'#2563eb',9:'#16a34a',10:'#d97706',11:'#7c3aed',12:'#dc2626'};
 const years = [2022,2023,2024,2025,2026];
 let activeClass = '10';
 let activeFilter = 'all';
@@ -1326,6 +1378,7 @@ function renderSubjectGrid(){
   const exams = examTypesByClass[activeClass];
   const searchVal = (document.getElementById('searchInput')?.value || '').toLowerCase();
 
+  const pcClr = CLASS_COLORS[activeClass] || '#1A3A8C';
   let html = '<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">';
   subjects.forEach(subj=>{
     const subjName = (subj.en + ' ' + subj.ta).toLowerCase();
@@ -1356,8 +1409,8 @@ function renderSubjectGrid(){
     const subjDisplayClass = currentLang === 'ta' ? 'font-bold mt-1 tamil' : 'font-bold mt-1';
 
     html += `
-      <div class="glass-card subject-card" data-aos="fade-up">
-        <div class="text-2xl">${subj.icon}</div>
+      <div class="glass-card subject-card" style="--pc-clr:${pcClr}" data-aos="fade-up">
+        <div class="pc-icon-wrap"><span class="text-2xl">${subj.icon}</span></div>
         <div class="${subjDisplayClass}">${subjDisplayName}</div>
         ${rowsHtml}
       </div>`;
@@ -1485,7 +1538,7 @@ function renderTbGrid(){
     const subjName = currentLang === 'ta' ? b.ta : b.en;
     const subjClass = currentLang === 'ta' ? 'tb-subject-en tamil' : 'tb-subject-en';
     html += `
-      <div class="tb-card" data-aos="fade-up">
+      <div class="tb-card" style="--pulse-clr:${fg}" data-aos="fade-up">
         <div class="tb-icon-wrap" style="background:${bg}">
           <i class="fa-solid ${faClass}" style="color:${fg};font-size:1.5rem"></i>
         </div>
