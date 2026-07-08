@@ -742,7 +742,6 @@ img{max-width:100%;height:auto;display:block;}
     <div class="hidden md:flex">
       <a href="#home" class="nav-link active" data-i18n="navHome">முகப்பு</a>
       <a href="#about" class="nav-link" data-i18n="navAbout">பள்ளி பற்றி</a>
-      <a href="#teachers" class="nav-link" data-i18n="navTeachers">ஆசிரியர்கள்</a>
       <div class="dropdown relative">
         <span class="nav-link cursor-pointer" data-i18n="navPapers">வினாத்தாள்கள் ▾</span>
         <div class="dropdown-menu">
@@ -774,7 +773,6 @@ img{max-width:100%;height:auto;display:block;}
   <div id="mobileDrawer" class="md:hidden">
     <a href="#home" class="nav-link block" data-i18n="navHome">முகப்பு</a>
     <a href="#about" class="nav-link block" data-i18n="navAbout">பள்ளி பற்றி</a>
-    <a href="#teachers" class="nav-link block" data-i18n="navTeachers">ஆசிரியர்கள்</a>
     <a href="#papers" class="nav-link block" data-i18n="navPapers">வினாத்தாள்கள் ▾</a>
     <a href="#textbooks" class="nav-link block" data-i18n="navTextbooks">பாடப் புத்தகங்கள்</a>
     <a href="#competitive-exams" class="nav-link block" data-i18n="navCompetitive">போட்டித் தேர்வுகள்</a>
@@ -970,48 +968,6 @@ img{max-width:100%;height:auto;display:block;}
   </div>
 </section>
 
-<!-- ============ TEACHERS ============ -->
-<section id="teachers" class="py-16 px-4 max-w-4xl mx-auto">
-  <h2 class="section-title block text-center mx-auto" data-i18n="teachersSectionTitle">ஆசிரியர்கள் பட்டியல் / Class Teachers List</h2>
-  <p class="text-center text-gray-500 mt-3 text-sm" data-i18n="teachersSubtitle">Academic Year 2025-26</p>
-  <div class="mt-8" style="overflow-x:auto">
-    <table class="cal-table">
-      <thead>
-        <tr>
-          <th data-i18n="teacherColName">Teacher's Name</th>
-          <th data-i18n="teacherColClass">Class</th>
-          <th data-i18n="teacherColSection">Section</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Kavitha K</td><td>6</td><td>A</td></tr>
-        <tr><td>Manjumatha G</td><td>6</td><td>B</td></tr>
-        <tr><td>Selvanayagi G</td><td>7</td><td>A</td></tr>
-        <tr><td>Mullaikodi M</td><td>7</td><td>B</td></tr>
-        <tr><td>Nareshkumar D</td><td>7</td><td>C</td></tr>
-        <tr><td>Nirmala G</td><td>8</td><td>A</td></tr>
-        <tr><td>Malarkodi C</td><td>8</td><td>B</td></tr>
-        <tr><td>Amudha K</td><td>8</td><td>C</td></tr>
-        <tr><td>Natramil J</td><td>9</td><td>A</td></tr>
-        <tr><td>Geetha S</td><td>9</td><td>B</td></tr>
-        <tr><td>Annamalai Raja S</td><td>9</td><td>C</td></tr>
-        <tr><td>Ramamoorthy M</td><td>9</td><td>D</td></tr>
-        <tr><td>Chandraprakash M</td><td>10</td><td>A</td></tr>
-        <tr><td>Kumaresan R</td><td>10</td><td>B</td></tr>
-        <tr><td>Elumalai G</td><td>10</td><td>C</td></tr>
-        <tr><td>Elavarasan L</td><td>10</td><td>D</td></tr>
-        <tr><td>Madhumathi R</td><td>11</td><td>A</td></tr>
-        <tr><td>Subramani K</td><td>11</td><td>B1</td></tr>
-        <tr><td>Vengadachalam G</td><td>11</td><td>B2</td></tr>
-        <tr><td>Karthik M</td><td>11</td><td>C</td></tr>
-        <tr><td>Arun Kumar M</td><td>12</td><td>AB2</td></tr>
-        <tr><td>Sankar Prasath Kumar S</td><td>12</td><td>B1</td></tr>
-        <tr><td>Theerthalingam T</td><td>12</td><td>C</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
 <!-- ============ GALLERY (placeholder) ============ -->
 <section id="gallery" class="py-16 px-4 max-w-7xl mx-auto">
   <h2 class="section-title block text-center mx-auto" data-i18n="gallerySectionTitle">படக்காட்சி / Gallery</h2>
@@ -1123,7 +1079,6 @@ const translations = {
     kural: "Agara Muthala Ezhuthellam Aadhi<br>Bhagavan Mudhatre Ulagu",
     navHome: "Home",
     navAbout: "About School",
-    navTeachers: "Teachers",
     navPapers: "Question Papers ▾",
     navTextbooks: "Textbooks",
     textbooksSectionTitle: "Textbooks",
@@ -1167,11 +1122,6 @@ const translations = {
     summerVacation: "Summer Vacation",
     calWorkingDays: "Total working days: 210 | Holidays: 155",
     aboutSectionTitle: "About the School",
-    teachersSectionTitle: "Class Teachers List",
-    teachersSubtitle: "Academic Year 2025-26",
-    teacherColName: "Teacher's Name",
-    teacherColClass: "Class",
-    teacherColSection: "Section",
     aboutPara: "Government Higher Secondary School, Panjapalli is a government school located in Dharmapuri District, Tamil Nadu. The school operates under the Tamil Nadu School Education Department and is affiliated with the Directorate of Government Examinations (DGE TN). The school's mission is to provide quality education to all its students.",
     statFounded: "Founded",
     statStudents2: "Students",
@@ -1201,7 +1151,6 @@ const translations = {
     kural: "அகர முதல எழுத்தெல்லாம் ஆதி<br>பகவன் முதற்றே உலகு",
     navHome: "முகப்பு",
     navAbout: "பள்ளி பற்றி",
-    navTeachers: "ஆசிரியர்கள்",
     navPapers: "வினாத்தாள்கள் ▾",
     navTextbooks: "பாடப் புத்தகங்கள்",
     textbooksSectionTitle: "பாடப் புத்தகங்கள்",
@@ -1245,11 +1194,6 @@ const translations = {
     summerVacation: "கோடை விடுமுறை",
     calWorkingDays: "மொத்த வேலை நாட்கள்: 210 | விடுமுறை நாட்கள்: 155",
     aboutSectionTitle: "பள்ளி பற்றி",
-    teachersSectionTitle: "ஆசிரியர்கள் பட்டியல்",
-    teachersSubtitle: "கல்வியாண்டு 2025-26",
-    teacherColName: "ஆசிரியர் பெயர்",
-    teacherColClass: "வகுப்பு",
-    teacherColSection: "பிரிவு",
     aboutPara: "அரசு மேல்நிலைப் பள்ளி, பஞ்சப்பள்ளி என்பது தர்மபுரி மாவட்டத்தில் அமைந்துள்ள ஒரு அரசு பள்ளியாகும். இப்பள்ளி தமிழ்நாடு அரசு பள்ளிக் கல்வித் துறையின் கீழ் இயங்கி வருகிறது மற்றும் தமிழ்நாடு அரசு தேர்வுகள் இயக்ககத்தால் (DGE TN) அங்கீகரிக்கப்பட்டதாகும். தரமான கல்வியை மாணவர்களுக்கு வழங்குவதே இப்பள்ளியின் நோக்கமாகும்.",
     statFounded: "நிறுவப்பட்டது",
     statStudents2: "மாணவர்கள்",
